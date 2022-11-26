@@ -1,3 +1,6 @@
+import { SecureComponent } from './layouts/secure/secure.component';
+import { PublicComponent } from './layouts/public/public.component';
+import { Guard } from './services/auth.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -13,8 +16,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
-    EmployeeComponent,
+    PublicComponent,
     LoginComponent,
+    SecureComponent,
+    EmployeeComponent,
     RegistrationComponent,
     ForgetPasswordComponent,
     HomeComponent
@@ -24,7 +29,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     NgbModule
   ],
-  providers: [],
+  providers: [
+    Guard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
